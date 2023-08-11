@@ -6,6 +6,7 @@ title: Hola 网络安全
 heroImage: /logo.svg
 heroText: Hola 网络安全
 heroFullScreen: true
+bgImage: /bgImage.png
 tagline: 
 projects:
   # - icon: project
@@ -38,7 +39,7 @@ projects:
   #   desc: 自定义详细介绍
   #   link: https://你的自定义链接
 
-footer: 自定义你的页脚文字
+footer: <a href="http://beian.miit.gov.cn/">京ICP备2023011546号</a>
 ---
 
 <!-- 这是一个博客主页的案例。

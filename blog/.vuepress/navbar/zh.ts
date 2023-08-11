@@ -4,7 +4,7 @@ export const zhNavbar = navbar([
   {
     text: "Web 安全基础",
     icon: "discover",
-    prefix: "/internet/",
+    prefix: "/internet",
     children: [
       {
         text: "XSS 注入",
@@ -47,7 +47,7 @@ export const zhNavbar = navbar([
   }, {
     text: "内网渗透",
     icon: "edit",
-    prefix: "/intranet/",
+    prefix: "/intranet",
     children: [
       {
         text: "信息收集",
@@ -66,7 +66,7 @@ export const zhNavbar = navbar([
   }, {
     text: "SRC 实战",
     icon: "edit",
-    prefix: "/src/",
+    prefix: "/src",
     children: [
       {
         text: "信息收集",
@@ -77,7 +77,7 @@ export const zhNavbar = navbar([
   },{
     text: "CTF",
     icon: "edit",
-    prefix: "/ctf/",
+    prefix: "/ctf",
     children: [
       {
         text: "信息收集",
@@ -88,7 +88,7 @@ export const zhNavbar = navbar([
   },{
     text: "靶场",
     icon: "edit",
-    prefix: "/target/",
+    prefix: "/target",
     children: [
       {
         text: "信息收集",
@@ -99,7 +99,7 @@ export const zhNavbar = navbar([
   },{
     text: "代码审计",
     icon: "edit",
-    prefix: "/code/",
+    prefix: "/code",
     children: [
       {
         text: "信息收集",
@@ -110,7 +110,7 @@ export const zhNavbar = navbar([
   },{
     text: "溯源分析",
     icon: "edit",
-    prefix: "/src/",
+    prefix: "/src",
     children: [
       {
         text: "信息收集",
@@ -121,7 +121,7 @@ export const zhNavbar = navbar([
   },{
     text: "面试经验",
     icon: "edit",
-    prefix: "/src/",
+    prefix: "/src",
     children: [
       {
         text: "信息收集",

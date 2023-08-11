@@ -1104,10 +1104,10 @@ exit
 <p>查看软连接（<code v-pre>text.txt</code> 指向了 <code v-pre>/var/www/html/1.txt</code>）</p>
 <p><code v-pre>cat test.txt</code></p>
 </blockquote>
-<h5 id="ssd-软连接后门原理" tabindex="-1"><a class="header-anchor" href="#ssd-软连接后门原理" aria-hidden="true">#</a> SSD  软连接后门原理</h5>
-<p><code v-pre>SSD</code> 软连接是 <code v-pre>Linux</code> 下经典的权限维持方法之一。</p>
-<p>其中涉及到一个比较重要的模块 <code v-pre>pam_rootok.so</code>。 这个模块的功能是<strong>如果用户<code v-pre>UID</code>时<code v-pre>0</code>，则返回成功</strong>，当<code v-pre>/etx/pam.d/ssh</code> 文件配置了 <code v-pre>auth sufficient pam_rootok.so</code> 时，<strong>可以不需要密码登录</strong>。</p>
-<p>当在被控端执行命令 <code v-pre>ln -sf /usr/sbin/sshd /tmp/su; /tmp/su- oPort=1234</code> 建立 <code v-pre>shd</code> 的软连接后门， <code v-pre>PAM</code> 认证时就会根据软连接名字到 <code v-pre>/etc/pam.d</code> 目录下寻找对应的 <code v-pre>PAM</code> 认证文件，由于软连接的文件名为 <code v-pre>su</code>， 所以 <code v-pre>SSH</code> 的认证文件就被替换成了 <code v-pre>/etc/pam.d/su</code>， 而 <code v-pre>su</code> 中默认配置了 <code v-pre>auth sufficient pam_rootok.so</code>， 从而导致 <code v-pre>SSH</code> 可以免密登录。</p>
+<h5 id="ssh-软连接后门原理" tabindex="-1"><a class="header-anchor" href="#ssh-软连接后门原理" aria-hidden="true">#</a> SSH  软连接后门原理</h5>
+<p><code v-pre>SSH</code> 软连接是 <code v-pre>Linux</code> 下经典的权限维持方法之一。</p>
+<p>其中涉及到一个比较重要的模块 <code v-pre>pam_rootok.so</code>。 这个模块的功能是<strong>如果用户<code v-pre>UID</code>时<code v-pre>0</code>，则返回成功</strong>，当<code v-pre>/etc/pam.d/ssh</code> 文件配置了 <code v-pre>auth sufficient pam_rootok.so</code> 时，<strong>可以不需要密码登录</strong>。</p>
+<p>当在被控端执行命令 <code v-pre>ln -sf /usr/sbin/sshd /tmp/su; /tmp/su -oPort=1234</code> 建立 <code v-pre>shd</code> 的软连接后门， <code v-pre>PAM</code> 认证时就会根据软连接名字到 <code v-pre>/etc/pam.d</code> 目录下寻找对应的 <code v-pre>PAM</code> 认证文件，由于软连接的文件名为 <code v-pre>su</code>， 所以 <code v-pre>SSH</code> 的认证文件就被替换成了 <code v-pre>/etc/pam.d/su</code>， 而 <code v-pre>su</code> 中默认配置了 <code v-pre>auth sufficient pam_rootok.so</code>， 从而导致 <code v-pre>SSH</code> 可以免密登录。</p>
 <h5 id="软连接维持权限实现" tabindex="-1"><a class="header-anchor" href="#软连接维持权限实现" aria-hidden="true">#</a> 软连接维持权限实现</h5>
 <ol>
 <li>
@@ -1620,78 +1620,78 @@ p <span class="token operator">=</span> subprocess<span class="token punctuation
 <li>DNS： 192.168.136.10（指向本机）</li>
 </ul>
 </blockquote>
-<figure><img src="@source/articles/.vuepress/public/images/护网专题/域控主机配置_01.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="/images/护网专题/域控主机配置_01.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <h5 id="二、更改计算机名" tabindex="-1"><a class="header-anchor" href="#二、更改计算机名" aria-hidden="true">#</a> 二、更改计算机名</h5>
 <blockquote>
 <p>以 <code v-pre>DC</code> 为例，修改完成后需要重启</p>
 </blockquote>
-<figure><img src="@source/articles/.vuepress/public/images/护网专题/域控主机配置_02_更改计算机名.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="/images/护网专题/域控主机配置_02_更改计算机名.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <h5 id="三、安装域控制器和-dns" tabindex="-1"><a class="header-anchor" href="#三、安装域控制器和-dns" aria-hidden="true">#</a> 三、安装域控制器和 DNS</h5>
 <blockquote>
 <p>打开【服务器管理仪表盘】</p>
 </blockquote>
-<figure><img src="@source/articles/.vuepress/public/images/护网专题/域控主机配置_03_安装域控制器和DNS服务.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="/images/护网专题/域控主机配置_03_安装域控制器和DNS服务.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <blockquote>
 <p>点击【添加角色和功能】，下一步，【基于角色或基于功能的安装】</p>
 </blockquote>
-<figure><img src="@source/articles/.vuepress/public/images/护网专题/域控主机配置_03_安装域控制器和DNS服务_02.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="/images/护网专题/域控主机配置_03_安装域控制器和DNS服务_02.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <blockquote>
 <p>从服务器池中选择服务器，选中【DC】，下一步</p>
 </blockquote>
-<figure><img src="@source/articles/.vuepress/public/images/护网专题/域控主机配置_03_安装域控制器和DNS服务_03.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="/images/护网专题/域控主机配置_03_安装域控制器和DNS服务_03.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <blockquote>
 <p>勾选【Active Directory 域服务】和【DNS 服务器】</p>
 </blockquote>
-<figure><img src="@source/articles/.vuepress/public/images/domain/域控主机配置_03_安装域控制器和DNS服务_04.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="/images/domain/域控主机配置_03_安装域控制器和DNS服务_04.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <blockquote>
 <p>【功能】、【AD DS】、【DNS 服务器】都保持默认配置，直接【下一步】，最后点击【安装】</p>
 </blockquote>
-<figure><img src="@source/articles/.vuepress/public/images/护网专题/域控主机配置_03_安装域控制器和DNS服务_05.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="/images/护网专题/域控主机配置_03_安装域控制器和DNS服务_05.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <blockquote>
 <p>安装完成后，先不要关闭窗口</p>
 </blockquote>
-<figure><img src="@source/articles/.vuepress/public/images/护网专题/域控主机配置_03_安装域控制器和DNS服务_06.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="/images/护网专题/域控主机配置_03_安装域控制器和DNS服务_06.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <h5 id="四、升级服务器" tabindex="-1"><a class="header-anchor" href="#四、升级服务器" aria-hidden="true">#</a> 四、升级服务器</h5>
 <blockquote>
 <p>上一步最后安装完成后，点击中间蓝色字体【将此服务器提升为域控制器】</p>
 <p>如果不小心关闭了，在【仪表盘】右上角【黄色感叹号】中还可以看到</p>
 </blockquote>
-<figure><img src="@source/articles/.vuepress/public/images/护网专题/域控主机配置_04_升级域控_01.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="/images/护网专题/域控主机配置_04_升级域控_01.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <blockquote>
 <p>【在部署配置】选项中，选择【添加新林】，指定一个根域名（必须使用和<code v-pre>DNS</code> 命名约定的根域名，以 <code v-pre>hack.com</code> 为例）</p>
 </blockquote>
-<figure><img src="@source/articles/.vuepress/public/images/护网专题/域控主机配置_04_升级域控_02.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="/images/护网专题/域控主机配置_04_升级域控_02.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <blockquote>
 <p>在【域控制器选项】中，【林功能级别】设置为：<code v-pre>Windows Server 2012 R2</code>，【域功能级别】设置为： <code v-pre>Windows Server 2012 R2</code>。（在默认情况下，应该选择 <code v-pre>DNS</code> 服务器，林中的第一个域控制器必须是全局目录服务器而且不能是只读域控制器（<code v-pre>RODC</code>））。</p>
 <p>在【键入目录服务还原模式（<code v-pre>DSRM</code>）密码】处输入密码（这个密码是用来还原目录服务的，这里以 <code v-pre>123abc!@#</code> 为例）</p>
 </blockquote>
-<figure><img src="@source/articles/.vuepress/public/images/护网专题/域控主机配置_04_升级域控_03.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="/images/护网专题/域控主机配置_04_升级域控_03.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <blockquote>
 <p>在【DNS选项】中，忽略“无法创建 DNS 服务器的委派”警告，保持默认配置，点击【下一步】</p>
 </blockquote>
 <blockquote>
 <p>在【其他选项】中，等待 <code v-pre>NetBIOS</code> 域名自动生成，保持默认配置即可，点击【下一步】</p>
 </blockquote>
-<figure><img src="@source/articles/.vuepress/public/images/护网专题/域控主机配置_04_升级域控_04.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="/images/护网专题/域控主机配置_04_升级域控_04.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <blockquote>
 <p>在【路径】中，指定 <code v-pre>AD DS</code> 数据库、日志、<code v-pre>SYSVOL</code> 的存储位置，保持默认即可，点击【下一步】</p>
 </blockquote>
 <blockquote>
 <p>在【先决条件检查】中，等待服务器检查，如果失败，按照提示修复，如果成功，则直接点击【下一步】、【安装】</p>
 </blockquote>
-<figure><img src="@source/articles/.vuepress/public/images/护网专题/域控主机配置_04_升级域控_05.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="/images/护网专题/域控主机配置_04_升级域控_05.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <blockquote>
 <p>遇到了一个“失败的先决条件”，修复： 为 <code v-pre>administrator</code> 创建强密码</p>
 </blockquote>
-<figure><img src="@source/articles/.vuepress/public/images/护网专题/域控主机配置_04_升级域控_06.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="/images/护网专题/域控主机配置_04_升级域控_06.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <blockquote>
 <p>回到【域服务配置向导】，点击上方的蓝色字体【重新运行先决条件检查】，检查通过，点击【安装】</p>
 </blockquote>
-<figure><img src="@source/articles/.vuepress/public/images/护网专题/域控主机配置_04_升级域控_07.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="/images/护网专题/域控主机配置_04_升级域控_07.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <blockquote>
 <p>安装完成后，会自动重启</p>
 </blockquote>
-<figure><img src="@source/articles/.vuepress/public/images/护网专题/域控主机配置_04_升级域控_08.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="/images/护网专题/域控主机配置_04_升级域控_08.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <h5 id="五、创建-active-directory-用户" tabindex="-1"><a class="header-anchor" href="#五、创建-active-directory-用户" aria-hidden="true">#</a> 五、创建 Active Directory 用户</h5>
 <blockquote>
 <p>在【控制面板】【系统和安全】【管理工具】中，双击打开【Active Directory 用户和计算机】，展开【<code v-pre>hack.com</code>】，选中【<code v-pre>User</code>】并点击鼠标右键打开菜单，选择【新建】【用户】，</p>
@@ -1712,11 +1712,11 @@ p <span class="token operator">=</span> subprocess<span class="token punctuation
 <blockquote>
 <p>在【计算机名】中修改【域名】为 <code v-pre>hack.com</code>，点击【确定】，按照要求输入【域管理员账号和密码】</p>
 </blockquote>
-<figure><img src="@source/articles/.vuepress/public/images/护网专题/域内加入主机_06_配置网络_02.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="/images/护网专题/域内加入主机_06_配置网络_02.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <blockquote>
 <p>加域成功，按要求重启计算机生效。重启之后的域账户需要修改密码（原始密码默认为空）</p>
 </blockquote>
-<figure><img src="@source/articles/.vuepress/public/images/护网专题/域内加入主机_06_配置网络_03.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
+<figure><img src="/images/护网专题/域内加入主机_06_配置网络_03.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>
 <h3 id="本机工作组信息收集" tabindex="-1"><a class="header-anchor" href="#本机工作组信息收集" aria-hidden="true">#</a> 本机工作组信息收集</h3>
 <h4 id="网络配置信息" tabindex="-1"><a class="header-anchor" href="#网络配置信息" aria-hidden="true">#</a> 网络配置信息</h4>
 <p>查看网络配置信息</p>

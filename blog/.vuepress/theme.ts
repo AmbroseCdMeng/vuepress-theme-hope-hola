@@ -39,8 +39,8 @@ export default hopeTheme({
   },
 
   /* 主题布局配置 */
-  navbar: false,
-  sidebar: false,
+  navbar: zhNavbar,
+  sidebar: zhSidebar,
   footer: '',
   displayFooter: false,
 
@@ -50,12 +50,20 @@ export default hopeTheme({
   /* 插件配置 */
   plugins: {
     blog: true,
+    // https://giscus.app/zh-CN
     comment: {
       // @ts-ignore
       provider: 'Giscus',
+      comment: true,
+      repo: 'AmbroseCdMeng/vuepress-theme-hope-hola',
+      repoId: 'R_kgDOJddP8A',
+      category: 'Announcements',
+      categoryId: "DIC_kwDOJddP8M4CWLZc",
+      mapping: 'pathname',
+      inputPosition: 'top'
     },
 
-    // Disable features you don’t want here
+    // MarkDown 增强
     mdEnhance: {
       align: true,
       attrs: true,
@@ -69,6 +77,7 @@ export default hopeTheme({
       gfm: true,
       imgLazyload: true,
       imgSize: true,
+      imgMark: true,
       include: true,
       katex: true,
       mark: true,
