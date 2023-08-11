@@ -14,11 +14,5 @@ export default defineUserConfig({
       __dirname,
       "./components/BlogHero.vue"
     ), 
-  },
-  plugins: [
-    // commentPlugin({
-    //   // 插件选项
-    //   comment: true
-    // }),
-  ],
+  },  
 });

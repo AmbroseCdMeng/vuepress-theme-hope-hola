@@ -1286,13 +1286,13 @@ sc sdset shell "D:(A;;CCLCSWRPWPDTLOCRRC;;;SY)(A;;CCDCLCSWRPWPDTLOCRSDRCW
 >
 > `cat test.txt`
 
-##### SSD  软连接后门原理
+##### SSH  软连接后门原理
 
-`SSD` 软连接是 `Linux` 下经典的权限维持方法之一。
+`SSH` 软连接是 `Linux` 下经典的权限维持方法之一。
 
-其中涉及到一个比较重要的模块 `pam_rootok.so`。 这个模块的功能是**如果用户`UID`时`0`，则返回成功**，当`/etx/pam.d/ssh` 文件配置了 `auth sufficient pam_rootok.so` 时，**可以不需要密码登录**。
+其中涉及到一个比较重要的模块 `pam_rootok.so`。 这个模块的功能是**如果用户`UID`时`0`，则返回成功**，当`/etc/pam.d/ssh` 文件配置了 `auth sufficient pam_rootok.so` 时，**可以不需要密码登录**。
 
-当在被控端执行命令 `ln -sf /usr/sbin/sshd /tmp/su; /tmp/su- oPort=1234` 建立 `shd` 的软连接后门， `PAM` 认证时就会根据软连接名字到 `/etc/pam.d` 目录下寻找对应的 `PAM` 认证文件，由于软连接的文件名为 `su`， 所以 `SSH` 的认证文件就被替换成了 `/etc/pam.d/su`， 而 `su` 中默认配置了 `auth sufficient pam_rootok.so`， 从而导致 `SSH` 可以免密登录。
+当在被控端执行命令 `ln -sf /usr/sbin/sshd /tmp/su; /tmp/su -oPort=1234` 建立 `shd` 的软连接后门， `PAM` 认证时就会根据软连接名字到 `/etc/pam.d` 目录下寻找对应的 `PAM` 认证文件，由于软连接的文件名为 `su`， 所以 `SSH` 的认证文件就被替换成了 `/etc/pam.d/su`， 而 `su` 中默认配置了 `auth sufficient pam_rootok.so`， 从而导致 `SSH` 可以免密登录。
 
 ##### 软连接维持权限实现
 
@@ -1787,39 +1787,39 @@ p = subprocess.call(['/bin/bash', '-i'])
 > - 网关： 192.168.136.2 （默认网关）
 > - DNS： 192.168.136.10（指向本机）
 
-![](./../.vuepress/public/images/护网专题/域控主机配置_01.png)
+![](/images/护网专题/域控主机配置_01.png)
 
 ##### 二、更改计算机名
 
 > 以 `DC` 为例，修改完成后需要重启
 
-![](./../.vuepress/public/images/护网专题/域控主机配置_02_更改计算机名.png)
+![](/images/护网专题/域控主机配置_02_更改计算机名.png)
 
 ##### 三、安装域控制器和 DNS
 
 > 打开【服务器管理仪表盘】
 
-![](./../.vuepress/public/images/护网专题/域控主机配置_03_安装域控制器和DNS服务.png)
+![](/images/护网专题/域控主机配置_03_安装域控制器和DNS服务.png)
 
 > 点击【添加角色和功能】，下一步，【基于角色或基于功能的安装】
 
-![](./../.vuepress/public/images/护网专题/域控主机配置_03_安装域控制器和DNS服务_02.png)
+![](/images/护网专题/域控主机配置_03_安装域控制器和DNS服务_02.png)
 
 > 从服务器池中选择服务器，选中【DC】，下一步
 
-![](./../.vuepress/public/images/护网专题/域控主机配置_03_安装域控制器和DNS服务_03.png)
+![](/images/护网专题/域控主机配置_03_安装域控制器和DNS服务_03.png)
 
 > 勾选【Active Directory 域服务】和【DNS 服务器】
 
-![](./../.vuepress/public/images/domain/域控主机配置_03_安装域控制器和DNS服务_04.png)
+![](/images/domain/域控主机配置_03_安装域控制器和DNS服务_04.png)
 
 > 【功能】、【AD DS】、【DNS 服务器】都保持默认配置，直接【下一步】，最后点击【安装】
 
-![](./../.vuepress/public/images/护网专题/域控主机配置_03_安装域控制器和DNS服务_05.png)
+![](/images/护网专题/域控主机配置_03_安装域控制器和DNS服务_05.png)
 
 > 安装完成后，先不要关闭窗口
 
-![](./../.vuepress/public/images/护网专题/域控主机配置_03_安装域控制器和DNS服务_06.png)
+![](/images/护网专题/域控主机配置_03_安装域控制器和DNS服务_06.png)
 
 ##### 四、升级服务器
 
@@ -1827,41 +1827,41 @@ p = subprocess.call(['/bin/bash', '-i'])
 >
 > 如果不小心关闭了，在【仪表盘】右上角【黄色感叹号】中还可以看到
 
-![](./../.vuepress/public/images/护网专题/域控主机配置_04_升级域控_01.png)
+![](/images/护网专题/域控主机配置_04_升级域控_01.png)
 
 > 【在部署配置】选项中，选择【添加新林】，指定一个根域名（必须使用和`DNS` 命名约定的根域名，以 `hack.com` 为例）
 
-![](./../.vuepress/public/images/护网专题/域控主机配置_04_升级域控_02.png)
+![](/images/护网专题/域控主机配置_04_升级域控_02.png)
 
 > 在【域控制器选项】中，【林功能级别】设置为：`Windows Server 2012 R2`，【域功能级别】设置为： `Windows Server 2012 R2`。（在默认情况下，应该选择 `DNS` 服务器，林中的第一个域控制器必须是全局目录服务器而且不能是只读域控制器（`RODC`））。
 >
 > 在【键入目录服务还原模式（`DSRM`）密码】处输入密码（这个密码是用来还原目录服务的，这里以 `123abc!@#` 为例）
 
-![](./../.vuepress/public/images/护网专题/域控主机配置_04_升级域控_03.png)
+![](/images/护网专题/域控主机配置_04_升级域控_03.png)
 
 > 在【DNS选项】中，忽略“无法创建 DNS 服务器的委派”警告，保持默认配置，点击【下一步】
 
 > 在【其他选项】中，等待 `NetBIOS` 域名自动生成，保持默认配置即可，点击【下一步】
 
-![](./../.vuepress/public/images/护网专题/域控主机配置_04_升级域控_04.png)
+![](/images/护网专题/域控主机配置_04_升级域控_04.png)
 
 > 在【路径】中，指定 `AD DS` 数据库、日志、`SYSVOL` 的存储位置，保持默认即可，点击【下一步】
 
 > 在【先决条件检查】中，等待服务器检查，如果失败，按照提示修复，如果成功，则直接点击【下一步】、【安装】
 
-![](./../.vuepress/public/images/护网专题/域控主机配置_04_升级域控_05.png)
+![](/images/护网专题/域控主机配置_04_升级域控_05.png)
 
 > 遇到了一个“失败的先决条件”，修复： 为 `administrator` 创建强密码
 
-![](./../.vuepress/public/images/护网专题/域控主机配置_04_升级域控_06.png)
+![](/images/护网专题/域控主机配置_04_升级域控_06.png)
 
 > 回到【域服务配置向导】，点击上方的蓝色字体【重新运行先决条件检查】，检查通过，点击【安装】
 
-![](./../.vuepress/public/images/护网专题/域控主机配置_04_升级域控_07.png)
+![](/images/护网专题/域控主机配置_04_升级域控_07.png)
 
 > 安装完成后，会自动重启
 
-![](./../.vuepress/public/images/护网专题/域控主机配置_04_升级域控_08.png)
+![](/images/护网专题/域控主机配置_04_升级域控_08.png)
 
 ##### 五、创建 Active Directory 用户
 
@@ -1886,11 +1886,11 @@ p = subprocess.call(['/bin/bash', '-i'])
 
 > 在【计算机名】中修改【域名】为 `hack.com`，点击【确定】，按照要求输入【域管理员账号和密码】
 
-![](./../.vuepress/public/images/护网专题/域内加入主机_06_配置网络_02.png)
+![](/images/护网专题/域内加入主机_06_配置网络_02.png)
 
 > 加域成功，按要求重启计算机生效。重启之后的域账户需要修改密码（原始密码默认为空）
 
-![](./../.vuepress/public/images/护网专题/域内加入主机_06_配置网络_03.png)
+![](/images/护网专题/域内加入主机_06_配置网络_03.png)
 
 ### 本机工作组信息收集
 
