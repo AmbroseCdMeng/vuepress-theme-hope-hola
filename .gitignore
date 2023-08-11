@@ -1,5 +1,5 @@
 .DS_Store
 node_modules/
 dist/
-.vuepress/.cache
-.vuepress/.temp
+blog/.vuepress/.cache/
+blog/.vuepress/.temp/

@@ -1,8 +1,17 @@
-
+---
+icon: edit
+date: 2023-05-24
+category:
+  - CTF
+tag:
+  - CTF
+star: true
+sticky: true
+---
 
 > 题目来源于[【攻防世界】]( https://adworld.xctf.org.cn/challenges/list)
 
-# 题目
+# XCTF-GFSJ0522-Crypto-难度1-base64
 - 名称： base64
 - 编号： GFSJ0522
 - 难度:1
@@ -16,7 +25,7 @@
 
 # 题解
 - 这个题实际上是没有任何难度的，从题目【Base64】就可以猜到，附件中的字符串应该是 `Base64` 转码之后的内容，随便找个`在线解码` 网站，就可以得到 `flag` ： `cyberpeace{Welcome_to_new_World!}`
-	![在这里插入图片描述](https://img-blog.csdnimg.cn/e32042f7e13e4fe6a89bc1991d66bd34.png)
+	![](/images/ctf/e32042f7e13e4fe6a89bc1991d66bd34.png)
 
 # 扩展
 > 这里主要聊一下 `Base64` 的原理。

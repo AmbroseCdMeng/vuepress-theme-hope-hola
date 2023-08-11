@@ -1,6 +1,17 @@
+---
+icon: edit
+date: 2023-05-24
+category:
+  - CTF
+tag:
+  - CTF
+star: true
+sticky: true
+---
+
 > 题目来源于[【攻防世界】]( https://adworld.xctf.org.cn/challenges/details?hash=c8996ba6-b085-4306-832d-096267e603ed_2)
 
-# 题目
+# XCTF-GFSJ0523-Crypto-难度1-Caesar
 - 名称： Banmabanma
 - 编号： GFSJ0006
 - 难度:1
@@ -48,7 +59,7 @@
 		`
 - 暴力尝试，得到 `flag` 为：`cyberpeace{you_have_learned_caesar_encryption}`
 
-- ![在这里插入图片描述](https://img-blog.csdnimg.cn/dda91f27b78a47dd9178737a0aa61044.png)
+- ![](/images/ctf/dda91f27b78a47dd9178737a0aa61044.png)
 
 
 # 附：生成密文的代码

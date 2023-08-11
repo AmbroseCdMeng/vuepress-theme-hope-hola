@@ -1,6 +1,17 @@
+---
+icon: edit
+date: 2023-05-24
+category:
+  - CTF
+tag:
+  - CTF
+star: true
+sticky: true
+---
+
 > 题目来源于[【攻防世界】]( https://adworld.xctf.org.cn/challenges/list)
 
-# 题目
+# XCTF-GFSJ0015-Misc-难度1-2017_Dating_in_Singapore
 - 名称： 2017_Dating_in_Singapore
 - 编号： GFSJ0151
 - 难度:1
@@ -9,7 +20,7 @@
 	01081522291516170310172431-050607132027262728-0102030209162330-02091623020310090910172423-02010814222930-0605041118252627-0203040310172431-0102030108152229151617-04050604111825181920-0108152229303124171003-261912052028211407-04051213192625
 
 - 题目附件:
-![在这里插入图片描述](https://img-blog.csdnimg.cn/5d916379c4f44a71a8612d7b10ffb3eb.png)
+![](/images/ctf/5d916379c4f44a71a8612d7b10ffb3eb.png)
 
 	
 
@@ -41,14 +52,14 @@
 - `15-16-17`，横线？连线？？？
 
 - 尝试一下：
-	![在这里插入图片描述](https://img-blog.csdnimg.cn/baaf1247e7fd4c24aacd9539edb13979.png)
+	![](/images/ctf/baaf1247e7fd4c24aacd9539edb13979.png)
 
 - 果然，12 组数字，分别在 12 个月内，连成了一堆字符
 - 虽然，4月、5月、12月貌似有点不对🤔
 - May 和 December 形似一堆大括号 `{ xxx }`，这是比较常见的 `flag` 的格式，虽然 `April` 看上去有点问题，但我觉得还是先尝试一下 `CTFFUN` 这个 `flag` 是否正确？😉如果不正确再回过头来研究，能出现字母至少证明思路大致没问题吧？（🤣哎？这个题，这个思路，怎么做出了一点密逃的感觉呢？🤣）
 
 - 试一下 `flag:{CTFFUN}` 
-- ![在这里插入图片描述](https://img-blog.csdnimg.cn/7be5686d1bb14bd98a369f330a3f05ea.png)
+- ![](/images/ctf/7be5686d1bb14bd98a369f330a3f05ea.png)
 - emmm🤔 并不正确
 
 - ........ 十几分钟以后
@@ -56,7 +67,6 @@
 - 题目中好像也没说 `flag` 的格式是 `flag{xxx}`， 我在想啥呢。。。
 - 那是这 12 个字符？😭那 `April` 这是个什么鬼？ 一团黑。。。 `O`?`B`?`8`?`0`?，还有别的一团黑的字符不？好像也就这几个了，结合前三个字符 `Hit`, 🙄 词汇量有点匮乏，也想不到能组成个什么单词了。于是，决定，就这 4 个字符，蒙起来。
 
-- ![在这里插入图片描述](https://img-blog.csdnimg.cn/915901c886474a0f9b27196686db3074.png)
 - 😂 第二次居然就蒙对了，正确答案就是： `HITB{CTFFUN}`
-![在这里插入图片描述](https://img-blog.csdnimg.cn/f0b53214a98944cdadc5a194d5de61a7.png)
+![](/images/ctf/f0b53214a98944cdadc5a194d5de61a7.png)
 

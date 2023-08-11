@@ -1,6 +1,17 @@
+---
+icon: edit
+date: 2023-05-24
+category:
+  - CTF
+tag:
+  - CTF
+star: true
+sticky: true
+---
+
 > 题目来源于[【攻防世界】]( https://adworld.xctf.org.cn/challenges/details?hash=959b1548-3860-4db6-9837-2986edd46ba1_2)
 
-# 题目
+# XCTF-GFSJ0524-Crypto-难度1-Morse
 - 名称： Morse
 - 编号： GFSJ0006
 - 难度:1
@@ -23,6 +34,6 @@
 - 转码结果应该就是 `flag` 了（注意题目要求：`flag格式为cyberpeace{xxxxxxxxxx},均为小写`）
 - `cyberpeace{morsecodeissointeresting}`
 
-- ![在这里插入图片描述](https://img-blog.csdnimg.cn/210065ccdf3b4b10addfade8be0ce4a6.png)
+- ![](/images/ctf/210065ccdf3b4b10addfade8be0ce4a6.png)
 
 
