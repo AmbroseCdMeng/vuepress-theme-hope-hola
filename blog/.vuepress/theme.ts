@@ -8,26 +8,26 @@ export default hopeTheme({
   author: {
     name: 'Hola Security',
   },
-  favicon: '/logo.svg',
+  favicon: '/logo.svg', // 网站 Title 旁边的 icon
   iconAssets: 'iconfont',
-  logo: '/logo.svg',
+  logo: '/logo.svg',  // 网页左上角的 logo and 个人信息中的 logo
   // repo: 'vuepress-theme-hope/online-demo',
   docsDir: 'blog',
 
   /* 主题功能配置 */
   blog: {
-    avatar: '/logo.svg',
-    name: 'Hola Security',
+    // avatar: '/logo.svg',
+    name: 'Hola Security', // 博客个人介绍区的 name
     description: '网络安全从这里开始 ...',
     // intro: '/intro.html',
     sidebarDisplay: 'mobile',
     intro: '',
-    medias: {
-      Email: 'https://example.com',
-      GitHub: 'https://example.com',
-    },
-    timeline: '假期中...',
-    articlePerPage: 10,
+    // medias: {
+    //   Email: 'https://example.com',
+    //   GitHub: 'https://example.com',
+    // },
+    timeline: '努力攒钱中......',
+    articlePerPage: 5,
     articleInfo: ["Author", "Original", "Date", "PageView", "Category", "Tag", "ReadingTime"],
   },
   encrypt: {
@@ -40,6 +40,11 @@ export default hopeTheme({
 
   /* 主题布局配置 */
   navbar: zhNavbar,
+  navbarLayout: {
+    start: ["Brand"],
+    center: ["Links"],
+    end: ["Language", "Repo", "Outlook", "Search"],
+  },
   sidebar: zhSidebar,
   footer: '',
   displayFooter: false,

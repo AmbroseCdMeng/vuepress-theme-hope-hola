@@ -7,18 +7,21 @@ tag:
   - 代码审计
   - Ruoyi
 star: true
-sticky: true
+sticky: 9999
+# excerpt: 摘要
 ---
 
 
 # Ruoyi v4.7.6 任意文件下载
 ## 前言
 > Ruoyi 的 v4.7.6 是 2022 年 12 月 16 日发布的一个版本，而任意文件下载漏洞实际上 12 月底的时候就已经爆出了，也陆续有一些文章在写这个漏洞，但是 Ruoyi 一直没有更新修复。
+
+
 > 
 > 上月中旬（2023 年 4 月中），Ruoyi 更新了 v4.7.7 版本，通过加固了白名单限制，修复了该漏洞。
 > 记得及时更新昂！
 
-
+<!-- more -->
 ## Ruoyi v4.7.7  
 > [更新日志：v4.7.7](http://doc.ruoyi.vip/ruoyi/document/gxrz.html#v4-7-7)
 
@@ -65,7 +68,7 @@ sticky: true
 1. 先了解一下 Ruoyi 定时任务功能的作用和原理。
 
 	- Ruoyi 默认提供了三个定时任务的示例（红框中的三个）。分别调用目标字符串 `ryTask.ryNoParams`、 `ryTask.ryParams('ry')`、 `ryTask.ryMultipleParams('ry', true, 2000L, 316.50D, 100)`。
-![](/images/audit/32d753f24edb4113ba07e0229d404f55.png)
+	![](/images/audit/32d753f24edb4113ba07e0229d404f55.png)
 	- 这三个调用字符串，特征很明显，分别在调用一个对象的**无参方法**、**有参方法**、**多参方法**
 2. 在源码中找到 `ryTask` 这个对象进行确认（在 idea 中直接连按两次 `shift` 搜索 `ryTask` 即可找到）
 	![](/images/audit/7934c22c5a804c8c9bb816c25992f337.png)
@@ -161,8 +164,8 @@ sticky: true
 
 
 	然后**执行 `RuoYiConfig.getProfile()` 从 `RuoYiConfig` 中获取了 `Profile` 的值**，并与传入的资源名称进行组合形成完整路径后进行下载。完美~~~	
-
- 	![](/images/audit/32c75f93ea2e4dcbb9f6ba5231eb2eae.png)
+	
+	![](/images/audit/32c75f93ea2e4dcbb9f6ba5231eb2eae.png)
 
 11. 至此，万事俱备，开始整活儿
 
@@ -175,7 +178,7 @@ sticky: true
 	 ```java
 	String localPath = RuoYiConfig.getProfile();	// 刚才被篡改的地址。  现在应该是   D://
      String downloadPath = localPath + StringUtils.substringAfter(resource, Constants.RESOURCE_PREFIX);
-	 ```
+	```
 	
 	`Constans.RESOURCE_PREFIX` 的值如下：
 	```java

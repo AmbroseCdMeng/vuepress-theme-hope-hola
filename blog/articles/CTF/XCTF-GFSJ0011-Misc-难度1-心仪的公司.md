@@ -7,6 +7,7 @@ tag:
   - CTF
 star: true
 sticky: true
+# excerpt: 摘要
 ---
 
 > 题目来源于[【攻防世界】]( https://adworld.xctf.org.cn/challenges/list)
@@ -18,11 +19,10 @@ sticky: true
 - 题目来源：`世安杯`
 - 题目描述：
 	flag格式为flag{xxxx}
-
 - 题目附件:
 	webshell.pcapng
 
-
+<!-- more -->
 # 题解
 - 题目附件为 `pcapng` 格式，即数据包
 - 直接连接 `kali`， 使用 `strings` 命令打开

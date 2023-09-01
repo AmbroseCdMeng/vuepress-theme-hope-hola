@@ -18,7 +18,7 @@ sticky: true
 - 题目来源：`世安杯`
 - 题目描述：
 	flag格式为flag{xxxx}
-
+<!-- more -->
 - 题目附件:
 
 	![](/images/ctf/2ce09809deb0483483dd9bbdeae4405a.png)

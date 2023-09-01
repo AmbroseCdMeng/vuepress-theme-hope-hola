@@ -14,7 +14,7 @@ sticky: true
 # CTFHUB-Web-信息泄露-备份文件下载-vim缓存
 ![](/images/ctf/7b6f9de8a00a4d3f9f93814af4c8e4b9.png)
 
-
+<!-- more -->
 # 题解
 - 进入题目，能看到一个小提示
 	![](/images/ctf/79701bcd2eca49f0b5a2742269291fa0.png)

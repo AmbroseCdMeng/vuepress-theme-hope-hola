@@ -1,13 +1,25 @@
 ---
+# 首页配置。参考： https://theme-hope.vuejs.press/zh/guide/layout/home.html
 home: true
-layout: BlogHome
+layout: BlogHome # 主题的几种布局。参考： https://theme-hope.vuejs.press/zh/guide/advanced/extend.html#%E7%BB%A7%E6%89%BF%E4%B8%BB%E9%A2%98
 icon: home
-title: Hola 网络安全
-heroImage: /logo.svg
-heroText: Hola 网络安全
-heroFullScreen: true
-bgImage: /bgImage.png
-tagline: 
+title: Hola 网络安全 # 网站的 Title 标题
+heroImage: /logo.svg # themes.ts 中的优先级貌似要高一些
+heroText: Hola 网络安全 # Home 背景图片上的标题。使用了 BlogHero.vue 组件复写了原有组件，所以这里不生效，修改需要去 BlogHero.vue 中
+tagline: 副标题
+heroFullScreen: false # Home 背景图片全屏or半屏
+# heroImageStyle: '' # 定制化背景图片样式
+bgImage: /bgImage.png # Home 背景图片
+# bgImageStyle: '' # 定制化 Logo 样式
+actions: [{
+  text: "重要的按钮",
+  link: "https://mengchengdu.blog.csdn.net/",
+  type: "default"
+}]
+highlights: [{
+  title: "亮点",
+  detail: "细节"
+}] 
 projects:
   # - icon: project
   #   name: 项目名称
