@@ -39,25 +39,25 @@ sticky: 9997
 
 1. 修改 `redis` 配置文件，关闭保护模式，关闭 ip 绑定；
 	
-	![](./images/Redis%20%E6%9C%AA%E6%8E%88%E6%9D%83/ef9534e3c0734576ab444bcf8f011943.png)
+	![](./images/Redis%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/ef9534e3c0734576ab444bcf8f011943.png)
 2. 配置 aliyun 入口规则，开放 `redis` 默认端口 `6379` 的访问；
 
-	![](./images/Redis%20%E6%9C%AA%E6%8E%88%E6%9D%83/5eeb594d4cca4f81b3caec42782a30ce.png)
+	![](./images/Redis%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/5eeb594d4cca4f81b3caec42782a30ce.png)
 3. 等待一段时间（或许几十分钟，或许几个小时，或许一天，但一般不会超过 48 小时）
 
-	![](./images/Redis%20%E6%9C%AA%E6%8E%88%E6%9D%83/0a42af41e2234486b7fe6a89513f5335.gif)
+	![](./images/Redis%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/0a42af41e2234486b7fe6a89513f5335.gif)
 4. 收到了来自 aliyun 官方的安全告警
 	
-	![](./images/Redis%20%E6%9C%AA%E6%8E%88%E6%9D%83/3c0188c8af5c47f0a33a9f2b48be0836.png)
+	![](./images/Redis%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/3c0188c8af5c47f0a33a9f2b48be0836.png)
 5. 连接 `redis` 终端，检查一下有什么变化？ 发现，在 `redis` 并未使用的情况下，多出了 4 个 名为 `backup` 的 `key`，查看 `backup1` 的 `value` 发现疑似一个 `cron` 定时任务指向一个 url 地址，地址中包含的是一个 `sh` 的脚本。
 
-	![](./images/Redis%20%E6%9C%AA%E6%8E%88%E6%9D%83/03de27bea7bd4dd9a66b5ce2dba748c5.png)
+	![](./images/Redis%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/03de27bea7bd4dd9a66b5ce2dba748c5.png)
 6. 访问这个 `url` 地址获取 `sh` 脚本，进一步分析（:warning::warning::warning: <font color=red><b>危险：建议在虚拟机或者测试机器访问，不要在本地计算机访问</b></font> :warning::warning::warning:），我这里直接选择在 aliyun 服务器上访问，因为我这台服务器演示完这个场景后是准备重置的。
 
-	![](./images/Redis%20%E6%9C%AA%E6%8E%88%E6%9D%83/b948a847fc22496ab82379f8cdb8e109.png)
+	![](./images/Redis%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/b948a847fc22496ab82379f8cdb8e109.png)
 7. 查看其它 3 个 `backup` 键的值，可以看到指向的是同一个恶意脚本，只是访问的方式和参数的区别
 
-	![](./images/Redis%20%E6%9C%AA%E6%8E%88%E6%9D%83/2fee3af1298b40258ae60071fd7c846f.png)
+	![](./images/Redis%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/2fee3af1298b40258ae60071fd7c846f.png)
 
 8. 分析恶意脚本源码（由于脚本的性质，这里不做上传，需要的可以直接访问上面公网地址获取，切记不要在物理机访问），大致有三部分内容
 
@@ -104,7 +104,7 @@ sticky: 9997
 	- 手动触发 `redis` 持久化
 
 - 过程如图
-	![](./images/Redis%20%E6%9C%AA%E6%8E%88%E6%9D%83/1e140e14b48e46c1bfa6a8ad76ab01ca.png)
+	![](./images/Redis%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/1e140e14b48e46c1bfa6a8ad76ab01ca.png)
 
 
 
@@ -120,7 +120,7 @@ sticky: 9997
 - `tail -f /root/data.txt` 实时查看 `/root/data.txt` 文件内容（*这个文件就是上面计划任务中 echo 命令指向的文件，如果有每分钟输出一次时间，就说明计划任务创建成功了*）
 - 过程如图（可以看到，成功了:v:）：
 
-![](./images/Redis%20%E6%9C%AA%E6%8E%88%E6%9D%83/7b30070d6c9d4b569bbf86418cd8c390.png)
+![](./images/Redis%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/7b30070d6c9d4b569bbf86418cd8c390.png)
 
 
 ### 4. （进阶）定时任务反弹 shell 获取权限
@@ -134,7 +134,7 @@ sticky: 9997
 	- `nc -lvp 8888` 开始监听 `8888` 端口
 		- `nc` 是 `netcat`工具的命令，大多数 `linux` 系统自带 `netcat`， windows 机器可以在官网（ `https://eternallybored.org/misc/netcat/` ）下载，记得关闭杀软或者加入白名单。
 	- 如图
-	![](./images/Redis%20%E6%9C%AA%E6%8E%88%E6%9D%83/a38f7afb966942028692ff5e3f559b3a.png)
+	![](./images/Redis%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/a38f7afb966942028692ff5e3f559b3a.png)
 
 2. 重新打开一个命令行窗口（监听窗口不要关），按照上面攻击复现的步骤 1 ~ 3，在目标机器的定时任务中写入反弹`shell`脚本，并等待其执行（执行成功后，监听窗口会有变化）。
 
@@ -149,17 +149,17 @@ sticky: 9997
 		- `config set dbfilename root`
 		- `save`
 	- 过程如图
-		![](./images/Redis%20%E6%9C%AA%E6%8E%88%E6%9D%83/e606eecae5d54711a7dacbecb051abe1.png)
+		![](./images/Redis%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/e606eecae5d54711a7dacbecb051abe1.png)
 
 3. 打开第一步中的监听窗口，等待一小会儿 :clock5:（一分钟之内）
 
 	- `shell` 反弹成功，本机已经成功远程连接目标机器
 
-		![](./images/Redis%20%E6%9C%AA%E6%8E%88%E6%9D%83/e0a87904c25446ce8fff4147fbbbbec0.png)
+		![](./images/Redis%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/e0a87904c25446ce8fff4147fbbbbec0.png)
 
 	- 执行两个命令证实一下，可以看到，此时的监听窗口已经连接上了远程机器的终端，并且可以返回了系统版本与当前用户名。
 	
-		![](./images/Redis%20%E6%9C%AA%E6%8E%88%E6%9D%83/c5cb436dcc5542998a6b03415d0ff501.png)
+		![](./images/Redis%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/c5cb436dcc5542998a6b03415d0ff501.png)
 
 
 ### 5. （进阶）SSH key 免密登录，权限维持
@@ -172,11 +172,11 @@ sticky: 9997
 	- `ssh-keygen` 命令是用来生成 `ssh key` 公私钥对的。
 		- 这个命令需要安装 `ssh` 才可以使用，`git` 中也集成了 `ssh`，如果电脑中装过 git 的也可以直接使用。
 		- 公私钥对是最常见的一种免密登录验证方式，大名鼎鼎的 `github` 的免密登录使用的就是这种。
-		- 基本原理也比较简单，就是通过加密算法，生成两个文件，一个公钥，一个私钥，两个是配套的，然后将公钥发送给目标主机存储起来，后续如果客户机想访问目标机器时，直接带着私钥去访问目标主机，目标主机经过核对，公私钥配套成功，就可以直接可以访问而不需要在输密码了。![](./images/Redis%20%E6%9C%AA%E6%8E%88%E6%9D%83/9a458ced1bd1490c80895f5d059c695c.png)
+		- 基本原理也比较简单，就是通过加密算法，生成两个文件，一个公钥，一个私钥，两个是配套的，然后将公钥发送给目标主机存储起来，后续如果客户机想访问目标机器时，直接带着私钥去访问目标主机，目标主机经过核对，公私钥配套成功，就可以直接可以访问而不需要在输密码了。![](./images/Redis%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/9a458ced1bd1490c80895f5d059c695c.png)
 
 2. 在存储路径下，找到公钥，用记事本打开，复制文本内容
 
-	![](./images/Redis%20%E6%9C%AA%E6%8E%88%E6%9D%83/4db3931782fe42279946263d3d7963ae.png)
+	![](./images/Redis%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/4db3931782fe42279946263d3d7963ae.png)
 
 3. 打开第 4 步中反弹连接的窗口（在第 4 步中，已经成功连接到目标主机），在目标主机上创建 `ssh` 文件并写入公钥
 
@@ -190,7 +190,7 @@ sticky: 9997
 			- `authorized_keys` 是 `linux` 中用来存储授权信息的文件
 	- 如图
 	
-		![](./images/Redis%20%E6%9C%AA%E6%8E%88%E6%9D%83/6943e044623449f4b1bcc0818b392311.png)
+		![](./images/Redis%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/6943e044623449f4b1bcc0818b392311.png)
 
 4. 关闭监听窗口，新开一个窗口，免密登录远程机器
 
@@ -201,18 +201,18 @@ sticky: 9997
 	- 尝试执行几条命令验证结果，可以看到，机器 `ip` 是 `133` 远程主机，用户是 `root`
 	- 这样，即使 `redis` 更新了配置文件，我们也可以通过 `ssh` 免密登录对主机进行远控。
 	- 如图
-	![](./images/Redis%20%E6%9C%AA%E6%8E%88%E6%9D%83/9ccf281fb3a44e72957f54ac37162503.png)
+	![](./images/Redis%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/9ccf281fb3a44e72957f54ac37162503.png)
 
 ## :hammer: 修复与加固方案
 
 ### 问题修复（只针对上述案例，真实场景中更复杂）
 1. 端口排查，先检查是否有可疑端口在与主机建立连接，如有，将其 `kill`（案例中是使用 `bash` 连接的）
-![](./images/Redis%20%E6%9C%AA%E6%8E%88%E6%9D%83/1b822e343d1f4312a46fc4b8708a798b.png)
+![](./images/Redis%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/1b822e343d1f4312a46fc4b8708a798b.png)
 2. 检查定时任务、服务、自启程序等，可以配合日志一起检查，如果发现可疑的任务，将其终止
-	![](./images/Redis%20%E6%9C%AA%E6%8E%88%E6%9D%83/53322d286dbf422aaa7f63ce31145e46.png)
+	![](./images/Redis%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/53322d286dbf422aaa7f63ce31145e46.png)
 3. 检查 `.ssh` 文件，是否有可疑的认证凭据，如有，将其删除
 
-	![](./images/Redis%20%E6%9C%AA%E6%8E%88%E6%9D%83/51948fdf31db48fdaa5f22656a7c5c95.png)
+	![](./images/Redis%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/51948fdf31db48fdaa5f22656a7c5c95.png)
 
 
 4. 对 `redis` 进行加固（访问限制、密码配置等）
