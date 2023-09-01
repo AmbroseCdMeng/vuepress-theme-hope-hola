@@ -108,5 +108,3 @@ drwxr-xr-x 2 root root     4096 8月  15 13:41 templates
 [root@iZwz92d94t8mb03s9z327hZ gophish-v0.12.1-linux-64bit]# ./gophish
 ./gophish: /lib64/libc.so.6: version `GLIBC_2.28' not found (required by ./gophish)
 ```
-
-- 1. 

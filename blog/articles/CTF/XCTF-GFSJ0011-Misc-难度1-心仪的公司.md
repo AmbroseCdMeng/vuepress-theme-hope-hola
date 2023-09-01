@@ -28,13 +28,13 @@ sticky: true
 - 直接连接 `kali`， 使用 `strings` 命令打开
 - 😂没注意到，文件还挺大的，都不好截图了，也别直接用 `strings` 打开了，过滤一下吧；
 - `strings webshell.pcapng | grep flag{`
-- ![](/images/ctf/abf5699fc92a48978459b805683b53da.png)
+- ![](./../../.vuepress/public/images/ctf/abf5699fc92a48978459b805683b53da.png)
 - 🤔居然没有
 - 懒了一下，看了 `write up` 才知道，原来，flag 做了隐藏，不叫 `flag` 了，而是 `fl4g`（新手，头一次见到还可以这样，涨知识了💔）
-	![](/images/ctf/cb2b5c81db1240459239c5fb67d8deef.png)
+	![](./images/XCTF-GFSJ0011-Misc-%E9%9A%BE%E5%BA%A61-%E5%BF%83%E4%BB%AA%E7%9A%84%E5%85%AC%E5%8F%B8/cb2b5c81db1240459239c5fb67d8deef.png)
 - fl4g:{ftop_Is_Waiting_4_y}
 
-- ![](/images/ctf/82699efc6daf47a890086ff185c1db7a.png)
+- ![](./images/XCTF-GFSJ0011-Misc-%E9%9A%BE%E5%BA%A61-%E5%BF%83%E4%BB%AA%E7%9A%84%E5%85%AC%E5%8F%B8/82699efc6daf47a890086ff185c1db7a.png)
 
 
 

@@ -59,7 +59,7 @@ sticky: true
 		`
 - 暴力尝试，得到 `flag` 为：`cyberpeace{you_have_learned_caesar_encryption}`
 
-- ![](/images/ctf/dda91f27b78a47dd9178737a0aa61044.png)
+- ![](./images/XCTF-GFSJ0523-Crypto-%E9%9A%BE%E5%BA%A61-Caesar/dda91f27b78a47dd9178737a0aa61044.png)
 
 
 # 附：生成密文的代码

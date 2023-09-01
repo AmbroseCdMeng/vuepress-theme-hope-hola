@@ -18,7 +18,7 @@ sticky: true
 - 题目来源：`poxlove3`
 - 题目描述：
 	`小鱼得意的瞟了你一眼，神神气气的拿走了答对谜语的奖励，你心里暗暗较劲 想着下一个谜题一定要比小鱼更快的解出来。不知不觉你们走到了下一个谜题的地方，这个地方有些奇怪。 上面没什么提示信息，只是刻着一些0和1，感觉有着一些奇怪的规律，你觉得有些熟悉，但是就是想不起来 这些01代表着什么意思。一旁的小鱼看你眉头紧锁的样子，扑哧一笑，对你讲“不好意思我又猜到答案了。”(flag格式为cyberpeace{xxxxxxxxxx},均为小写)
-`<!-- more -->
+	`<!-- more -->
 - 题目附件:
 
 	`11 111 010 000 0 1010 111 100 0 00 000 000 111 00 10 1 0 010 0 000 1 00 10 110`	
@@ -34,6 +34,5 @@ sticky: true
 - 转码结果应该就是 `flag` 了（注意题目要求：`flag格式为cyberpeace{xxxxxxxxxx},均为小写`）
 - `cyberpeace{morsecodeissointeresting}`
 
-- ![](/images/ctf/210065ccdf3b4b10addfade8be0ce4a6.png)
-
+- ![](./images/XCTF-GFSJ0524-Crypto-%E9%9A%BE%E5%BA%A61-Morse/210065ccdf3b4b10addfade8be0ce4a6.png)
 

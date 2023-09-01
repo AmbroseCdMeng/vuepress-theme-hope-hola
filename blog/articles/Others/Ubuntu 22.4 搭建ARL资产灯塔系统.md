@@ -59,7 +59,7 @@ sticky: 9997
 
 3. 找到对应的版本，从这里转去 `github` 的 `docker-compse release` 库，下载对应的 `compse` 版本二进制包
 
-   ![image-20230825172628948](/images/Ubuntu%2020.2%20%E6%90%AD%E5%BB%BAARL%E8%B5%84%E4%BA%A7%E7%81%AF%E5%A1%94%E7%B3%BB%E7%BB%9F.assets/image-20230825172628948-1692955602415-8.png)
+   ![image-20230825172628948](./images/Ubuntu%2022.4%20%E6%90%AD%E5%BB%BAARL%E8%B5%84%E4%BA%A7%E7%81%AF%E5%A1%94%E7%B3%BB%E7%BB%9F/image-20230825172628948-1692955602415-8.png)
 
    也可以直接用 `sudo curl -L "https://github.com/docker/compose/releases/download/v2.20.1/docker-compose-linux-x86_64" -o /usr/local/bin/docker-compose` 命令进行下载（下载地址中版本号和文件名自行修改）。 
 
@@ -87,7 +87,7 @@ sticky: 9997
 
    7. 整个过程可以参照官网的 `Readme.md` 文档（https://github.com/docker/compose）
 
-      ![image-20230825181451077](/images/Ubuntu%2020.2%20%E6%90%AD%E5%BB%BAARL%E8%B5%84%E4%BA%A7%E7%81%AF%E5%A1%94%E7%B3%BB%E7%BB%9F.assets/image-20230825181451077-1692958494833-10.png)
+      ![image-20230825181451077](./images/Ubuntu%2022.4%20%E6%90%AD%E5%BB%BAARL%E8%B5%84%E4%BA%A7%E7%81%AF%E5%A1%94%E7%B3%BB%E7%BB%9F/image-20230825181451077-1692958494833-10.png)
 
 
 
@@ -121,11 +121,11 @@ sticky: 9997
 
 7. 看到这个界面时，就说明已经在拉取镜像资源准备启动了，耐心等待即可
 
-   ![image-20230825182545577](/images/Ubuntu%2020.2%20%E6%90%AD%E5%BB%BAARL%E8%B5%84%E4%BA%A7%E7%81%AF%E5%A1%94%E7%B3%BB%E7%BB%9F.assets/image-20230825182545577-1692959148948-12.png)
+   ![image-20230825182545577](./images/Ubuntu%2022.4%20%E6%90%AD%E5%BB%BAARL%E8%B5%84%E4%BA%A7%E7%81%AF%E5%A1%94%E7%B3%BB%E7%BB%9F/image-20230825182545577-1692959148948-12.png)
 
 8. 启动成功。默认端口：5003，默认用户名密码： admin/arlpass
 
-​	![image-20230901131239416](/images/Ubuntu%2020.2%20%E6%90%AD%E5%BB%BAARL%E8%B5%84%E4%BA%A7%E7%81%AF%E5%A1%94%E7%B3%BB%E7%BB%9F.assets/image-20230901131239416-1693545169619-14.png)
+​	![image-20230901131239416](./images/Ubuntu%2022.4%20%E6%90%AD%E5%BB%BAARL%E8%B5%84%E4%BA%A7%E7%81%AF%E5%A1%94%E7%B3%BB%E7%BB%9F/image-20230901131239416-1693545169619-14.png)
 
 
 
