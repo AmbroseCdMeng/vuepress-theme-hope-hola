@@ -1,3 +1,15 @@
+---
+icon: edit
+date: 2023-09-01
+category:
+
+  - 环境搭建
+tag:
+  - 环境搭建
+star: false
+sticky: false
+---
+
 # GoPhish 环境搭建（Linux）
 
 >  GoPhish 官网： https://github.com/gophish/gophish/releases

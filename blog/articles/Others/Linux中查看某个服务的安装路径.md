@@ -1,3 +1,15 @@
+---
+icon: edit
+date: 2023-09-01
+category:
+  - 环境搭建
+tag:
+  - 环境搭建
+star: false
+sticky: false
+---
+
+
 想修改某服务的配置，却又忘记了安装目录，以 `nginx` 为例
 
 ### 方法1： 

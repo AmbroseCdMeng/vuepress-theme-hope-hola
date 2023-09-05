@@ -1,3 +1,14 @@
+---
+icon: edit
+date: 2023-09-01
+category:
+  - 环境搭建
+tag:
+  - 环境搭建
+star: false
+sticky: false
+---
+
 # CentOS 7.9 升级 GLIBC 2.28 踩坑全过程
 
 升级 `GLIBC` 版本
